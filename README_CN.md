@@ -9,14 +9,13 @@ Go 语言安装
 
 #### 注意
 - 由于 “raw.githubusercontent.com” 已被墙，故英文版本的地址已失效。
-- 必须在 **root** 用户下执行脚本。
 - 默认安装最新版本的 **go version**, **GOPATH** 目录为 ```~/.go/path```
 
 ## 安装
 ### 在线安装
 #### 默认安装
 ```sh
-$ curl https://gitea.com/skiy/golang-install/raw/branch/master/install.sh | bash
+$ curl https://gitee.com/skiy/golang-install/raw/master/install.sh | bash
 ```
 
 #### 自定义安装

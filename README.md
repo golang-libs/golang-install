@@ -8,7 +8,6 @@ The latest version of the golang is installed.
 English | [简体中文](./README_CN.md)
 
 #### Notice
-- You must be **root** to run this script.
 - By default, the latest version of **go version** is installed, and the **GOPATH** directory is ```~/.go/path```
 
 ## Installation
