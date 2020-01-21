@@ -23,7 +23,7 @@ $ curl https://gitee.com/skiy/golang-install/raw/master/install.sh | bash
 - **MY_DIY_GO_PATH** 是自定义版本号, 例如： ```/home/myhome/go```
 
 ```sh
-$ curl -SL https://gitea.com/skiy/golang-install/raw/branch/master/install.sh | bash /dev/stdin -v MY_DIY_GO_VERSION -d MY_DIY_GO_PATH
+$ curl -SL https://gitee.com/skiy/golang-install/raw/master/install.sh | bash /dev/stdin -v MY_DIY_GO_VERSION -d MY_DIY_GO_PATH
 ```
 
 ### 离线执行

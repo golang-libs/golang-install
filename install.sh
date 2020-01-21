@@ -324,7 +324,7 @@ tar -C ${HOME}/.go -zxf $DOWNLOAD_FILE && \
 rm -rf $DOWNLOAD_FILE
  
 setProfile
- 
+
 setEnvironment $PROFILE
  
 # Make environmental is enable
