@@ -104,6 +104,12 @@ initArgs() {
     done
 }
 
+# Check set file
+setProfile() {
+    test ! -e $PROFILE && PROFILE="${HOME}/.bash_profile"
+    test ! -e $PROFILE && PROFILE="${HOME}/.bashrc"
+}
+
 # DIY version
 customVersion() {
     if [ -n "${1}" ] ;then
@@ -277,6 +283,8 @@ Options:
 exit 1
 }
 
+
+
 # identify platform based on uname output
 initArgs $@
 
@@ -314,6 +322,8 @@ fi
 rm -rf ${HOME}/.go/go
 tar -C ${HOME}/.go -zxf $DOWNLOAD_FILE && \
 rm -rf $DOWNLOAD_FILE
+ 
+setProfile
  
 setEnvironment $PROFILE
  
