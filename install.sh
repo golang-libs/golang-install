@@ -22,7 +22,6 @@ GOPROXY_TEXT="https://proxy.golang.org"
 
 # Set environmental for golang
 #PROFILE="/etc/profile"
-#PROFILE="${HOME}/.bashrc"
 PROFILE="${HOME}/.profile"
 
 # Set GOPATH PATH
@@ -104,12 +103,6 @@ initArgs() {
     done
 }
 
-# Check set file
-setProfile() {
-    test ! -e $PROFILE && PROFILE="${HOME}/.bash_profile"
-    test ! -e $PROFILE && PROFILE="${HOME}/.bashrc"
-}
-
 # DIY version
 customVersion() {
     if [ -n "${1}" ] ;then
@@ -186,43 +179,45 @@ downloadFile() {
 
 # Set golang environment
 setEnvironment() {
-    profile="${1}"  
+    test ! -e $PROFILE && PROFILE="${HOME}/.bash_profile"
+    
+    test ! -e $PROFILE && PROFILE="${HOME}/.bashrc"
 
-    if [ -z "`grep 'export\sGOROOT' ${profile}`" ];then
-        echo -e "\n## GOLANG" >> $profile
-        #echo "export GOROOT=/usr/local/go" >> $profile
-        echo "export GOROOT=${HOME}/.go/go" >> $profile
+    if [ -z "`grep 'export\sGOROOT' ${PROFILE}`" ];then
+        echo -e "\n## GOLANG" >> $PROFILE
+        #echo "export GOROOT=/usr/local/go" >> $PROFILE
+        echo "export GOROOT=${HOME}/.go/go" >> $PROFILE
     fi
 
-    if [ -z "`grep 'export\sGOPATH' ${profile}`" ];then
-        echo "export GOPATH=${GO_PATH}" >> $profile
+    if [ -z "`grep 'export\sGOPATH' ${PROFILE}`" ];then
+        echo "export GOPATH=${GO_PATH}" >> $PROFILE
     fi
     
-    if [ -z "`grep 'export\sGOBIN' ${profile}`" ];then
-        echo "export GOBIN=\$GOPATH/bin" >> $profile
+    if [ -z "`grep 'export\sGOBIN' ${PROFILE}`" ];then
+        echo "export GOBIN=\$GOPATH/bin" >> $PROFILE
     fi   
 
-    if [ -z "`grep 'export\sGO111MODULE' ${profile}`" ];then
+    if [ -z "`grep 'export\sGO111MODULE' ${PROFILE}`" ];then
         if versionGE $RELEASE_TAG "go1.11.1"; then
-            echo "export GO111MODULE=on" >> $profile
+            echo "export GO111MODULE=on" >> $PROFILE
         fi
     fi       
 
     if [ "${IN_CHINA}" == "1" ]; then 
-        if [ -z "`grep 'export\sGOSUMDB' ${profile}`" ];then
-            echo "export GOSUMDB=off" >> $profile
+        if [ -z "`grep 'export\sGOSUMDB' ${PROFILE}`" ];then
+            echo "export GOSUMDB=off" >> $PROFILE
         fi      
     fi
 
-    if [ -z "`grep 'export\sGOPROXY' ${profile}`" ];then
+    if [ -z "`grep 'export\sGOPROXY' ${PROFILE}`" ];then
         if versionGE $RELEASE_TAG "go1.13"; then
             GOPROXY_TEXT="${GOPROXY_TEXT},direct"
         fi
-        echo "export GOPROXY=${GOPROXY_TEXT}" >> $profile
+        echo "export GOPROXY=${GOPROXY_TEXT}" >> $PROFILE
     fi  
     
-    if [ -z "`grep '\$GOROOT/bin:\$GOBIN' ${profile}`" ];then
-        echo "export PATH=\$GOROOT/bin:\$GOBIN:\$PATH" >> $profile
+    if [ -z "`grep '\$GOROOT/bin:\$GOBIN' ${PROFILE}`" ];then
+        echo "export PATH=\$GOROOT/bin:\$GOBIN:\$PATH" >> $PROFILE
     fi        
 }
 
@@ -323,9 +318,7 @@ rm -rf ${HOME}/.go/go
 tar -C ${HOME}/.go -zxf $DOWNLOAD_FILE && \
 rm -rf $DOWNLOAD_FILE
  
-setProfile
-
-setEnvironment $PROFILE
+setEnvironment
  
 # Make environmental is enable
 . $PROFILE
