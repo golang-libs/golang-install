@@ -22,7 +22,8 @@ GOPROXY_TEXT="https://proxy.golang.org"
 
 # Set environmental for golang
 #PROFILE="/etc/profile"
-PROFILE="${HOME}/.bashrc"
+#PROFILE="${HOME}/.bashrc"
+PROFILE="${HOME}/.profile"
 
 # Set GOPATH PATH
 #GO_PATH="/data/go"
