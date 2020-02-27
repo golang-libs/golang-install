@@ -31,10 +31,10 @@ $ curl -SL https://gitee.com/skiy/golang-install/raw/master/install.sh | bash /d
 
 ```sh
 # 默认配置
-$ sh install.sh
+$ bash install.sh
 
 # 自定义    
-$ sh install.sh -v 1.12.8 -d /home/myhome/go 
+$ bash install.sh -v 1.12.8 -d /home/myhome/go 
 ```
   
 脚本可执行权限，那么同时可以自定义 Go 版本和 GOPATH。  

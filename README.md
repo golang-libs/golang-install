@@ -30,10 +30,10 @@ Save the script as a file name **install.sh**
 
 ```sh
 # default install
-$ sh install.sh   
+$ bash install.sh   
    
 # customize  
-$ sh install.sh -v 1.12.8 -d /home/myhome/go 
+$ bash install.sh -v 1.12.8 -d /home/myhome/go 
 ```
   
 When you add executable permissions, you can customize the version and gopath.   
