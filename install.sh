@@ -22,7 +22,7 @@ GOPROXY_TEXT="https://proxy.golang.org"
 
 # Set environmental for golang
 #PROFILE="/etc/profile"
-PROFILE="${HOME}/.profile"
+PROFILE="${HOME}/.bashrc"
 
 # Set GOPATH PATH
 #GO_PATH="/data/go"
@@ -179,9 +179,9 @@ downloadFile() {
 
 # Set golang environment
 setEnvironment() {
-    test ! -e $PROFILE && PROFILE="${HOME}/.bash_profile"
+    #test ! -e $PROFILE && PROFILE="${HOME}/.bash_profile"
     
-    test ! -e $PROFILE && PROFILE="${HOME}/.bashrc"
+    #test ! -e $PROFILE && PROFILE="${HOME}/.bashrc"
 
     if [ -z "`grep 'export\sGOROOT' ${PROFILE}`" ];then
         echo -e "\n## GOLANG" >> $PROFILE
