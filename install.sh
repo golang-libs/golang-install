@@ -321,7 +321,7 @@ rm -rf $DOWNLOAD_FILE
 setEnvironment
  
 # Make environmental is enable
-. $PROFILE
+source $PROFILE
 
 go env
 go version

@@ -14,7 +14,7 @@ English | [简体中文](./README_CN.md)
 ### Online
 #### Default install 
 ```sh
-$ curl https://raw.githubusercontent.com/skiy/golang-install/master/install.sh | bash
+$ bash <(curl -fsSL https://raw.githubusercontent.com/skiy/golang-install/master/install.sh)
 ```
 
 #### Custom version   
@@ -22,7 +22,7 @@ $ curl https://raw.githubusercontent.com/skiy/golang-install/master/install.sh |
 - **MY_DIY_GO_PATH** is a custom gopath, such as： ```/home/myhome/go```
 
 ```sh
-$ curl -SL https://raw.githubusercontent.com/skiy/golang-install/master/install.sh | bash /dev/stdin -v MY_DIY_GO_VERSION -d MY_DIY_GO_PATH
+$ bash <(curl -fsSL https://raw.githubusercontent.com/skiy/golang-install/master/install.sh) -v MY_DIY_GO_VERSION -d MY_DIY_GO_PATH
 ```
 
 ### Offline
@@ -61,11 +61,6 @@ Options:
   -d            : set go path (default: ~/.go/path)
 ```
 
-## Author
-Author: Skiychan   
-Email : dev@skiy.net   
-Link  : https://www.skiy.net 
-
 ## License
 
-This project is licensed under the [MIT license](https://github.com/totoval/totoval/blob/master/LICENSE).
+This project is licensed under the [MIT license](./LICENSE).
