@@ -26,7 +26,7 @@ PROFILE="${HOME}/.bashrc"
 
 # Set GOPATH PATH
 #GO_PATH="/data/go"
-GO_PATH="${HOME}/.go/path"
+GO_PATH="\$HOME/.go/path"
 
 # Is GWF
 IN_CHINA=0
@@ -319,11 +319,5 @@ tar -C ${HOME}/.go -zxf $DOWNLOAD_FILE && \
 rm -rf $DOWNLOAD_FILE
  
 setEnvironment
- 
-# Make environmental is enable
-. $PROFILE
-
-go env
-go version
  
 showSuccessMessage
