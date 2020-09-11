@@ -236,7 +236,7 @@ printf "
 ###############################################################
 ###  Golang Install
 ###
-###  Author:  Skiychan<dev@skiy.net>
+###  Author:  Skiy Chan <dev@skiy.net>
 ###  Link:    https://www.skiy.net 
 ###  Project: https://github.com/skiy/golang-install
 ###############################################################

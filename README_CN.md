@@ -15,7 +15,7 @@ Go 语言安装
 ### 在线安装
 #### 默认安装
 ```sh
-$ curl https://gitee.com/skiy/golang-install/raw/master/install.sh | bash
+$ bash <(curl -fsSL https://gitee.com/skiy/golang-install/raw/master/install.sh)
 ```
 
 #### 自定义安装
@@ -23,7 +23,7 @@ $ curl https://gitee.com/skiy/golang-install/raw/master/install.sh | bash
 - **MY_DIY_GO_PATH** 是自定义版本号, 例如： ```/home/myhome/go```
 
 ```sh
-$ curl -SL https://gitee.com/skiy/golang-install/raw/master/install.sh | bash /dev/stdin -v MY_DIY_GO_VERSION -d MY_DIY_GO_PATH
+$ bash <(curl -fsSL https://gitee.com/skiy/golang-install/raw/master/install.sh) -v MY_DIY_GO_VERSION -d MY_DIY_GO_PATH
 ```
 
 ### 离线执行
@@ -62,11 +62,6 @@ Options:
   -d            : set go path (default: ~/.go/path)
 ```
 
-## 作者
-Author: Skiychan   
-Email : dev@skiy.net   
-Link  : https://www.skiy.net 
-
 ## License
 
-This project is licensed under the [MIT license](https://github.com/totoval/totoval/blob/master/LICENSE).
+This project is licensed under the [MIT license](./LICENSE).
