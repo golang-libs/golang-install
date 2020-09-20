@@ -4,8 +4,8 @@
 # Project Home Page:
 # https://github.com/skiy/golang-install
 #
-# Author: Skiychan <skiychan@outlook.com>
-# Link: https://www.skiy.net
+# Author: Skiy Chan <dev@skiy.net>
+# Link: https://skiy.net
 
 # Script file name
 SCRIPT_NAME=$0
@@ -187,6 +187,8 @@ setEnvironment() {
         echo -e "\n## GOLANG" >> $PROFILE
         #echo "export GOROOT=/usr/local/go" >> $PROFILE
         echo "export GOROOT=\$HOME/.go/go" >> $PROFILE
+    else
+        sed -i "s@^export\sGOROOT.*@export\sGOROOT=\$HOME/.go/go@" $PROFILE
     fi
 
     if [ -z "`grep 'export\sGOPATH' ${PROFILE}`" ];then
