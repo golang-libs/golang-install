@@ -193,10 +193,14 @@ setEnvironment() {
 
     if [ -z "`grep 'export\sGOPATH' ${PROFILE}`" ];then
         echo "export GOPATH=${GO_PATH}" >> $PROFILE
+    else
+        sed -i "s@^export\sGOPATH.*@export\sGOPATH=${GO_PATH}@" $PROFILE
     fi
     
     if [ -z "`grep 'export\sGOBIN' ${PROFILE}`" ];then
         echo "export GOBIN=\$GOPATH/bin" >> $PROFILE
+    else 
+        sed -i "s@^export\sGOBIN.*@export\sGOBIN=\$GOPATH/bin@" $PROFILE        
     fi   
 
     if [ -z "`grep 'export\sGO111MODULE' ${PROFILE}`" ];then
