@@ -188,19 +188,19 @@ setEnvironment() {
         #echo "export GOROOT=/usr/local/go" >> $PROFILE
         echo "export GOROOT=\$HOME/.go/go" >> $PROFILE
     else
-        sed -i "s@^export\sGOROOT.*@export\sGOROOT=\$HOME/.go/go@" $PROFILE
+        sed -i "s@^export GOROOT.*@export GOROOT=\$HOME/.go/go@" $PROFILE
     fi
 
     if [ -z "`grep 'export\sGOPATH' ${PROFILE}`" ];then
         echo "export GOPATH=${GO_PATH}" >> $PROFILE
     else
-        sed -i "s@^export\sGOPATH.*@export\sGOPATH=${GO_PATH}@" $PROFILE
+        sed -i "s@^export GOPATH.*@export GOPATH=${GO_PATH}@" $PROFILE
     fi
     
     if [ -z "`grep 'export\sGOBIN' ${PROFILE}`" ];then
         echo "export GOBIN=\$GOPATH/bin" >> $PROFILE
     else 
-        sed -i "s@^export\sGOBIN.*@export\sGOBIN=\$GOPATH/bin@" $PROFILE        
+        sed -i "s@^export GOBIN.*@export GOBIN=\$GOPATH/bin@" $PROFILE        
     fi   
 
     if [ -z "`grep 'export\sGO111MODULE' ${PROFILE}`" ];then
