@@ -15,7 +15,7 @@ Go 语言安装
 ### 在线安装
 #### 默认安装
 ```sh
-$ bash <(curl -fsSL https://gitee.com/skiy/golang-install/raw/master/install.sh)
+$ curl -fsL https://gitlab.cn/skiy/golang-install/-/raw/main/install.sh | bash
 ```
 
 #### 自定义安装
@@ -23,7 +23,7 @@ $ bash <(curl -fsSL https://gitee.com/skiy/golang-install/raw/master/install.sh)
 - **MY_DIY_GO_PATH** 是自定义版本号, 例如： ```/home/myhome/go```
 
 ```sh
-$ bash <(curl -fsSL https://gitee.com/skiy/golang-install/raw/master/install.sh) -v MY_DIY_GO_VERSION -d MY_DIY_GO_PATH
+$ curl -fsL https://gitlab.cn/skiy/golang-install/-/raw/main/install.sh | bash -s -- -v MY_DIY_GO_VERSION -d MY_DIY_GO_PATH
 ```
 
 ### 离线执行

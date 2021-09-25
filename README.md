@@ -1,4 +1,4 @@
-Golang-Install
+Golang Install
 ------
 The latest version of the golang is installed.   
 - Support **Linux / MacOS / FreeBSD**
@@ -14,7 +14,7 @@ English | [简体中文](./README_CN.md)
 ### Online
 #### Default install 
 ```sh
-$ bash <(curl -fsSL https://raw.githubusercontent.com/skiy/golang-install/master/install.sh)
+$ curl -fsL https://raw.githubusercontent.com/skiy/golang-install/main/install.sh | bash
 ```
 
 #### Custom version   
@@ -22,7 +22,7 @@ $ bash <(curl -fsSL https://raw.githubusercontent.com/skiy/golang-install/master
 - **MY_DIY_GO_PATH** is a custom gopath, such as： ```/home/myhome/go```
 
 ```sh
-$ bash <(curl -fsSL https://raw.githubusercontent.com/skiy/golang-install/master/install.sh) -v MY_DIY_GO_VERSION -d MY_DIY_GO_PATH
+$ curl -fsL https://raw.githubusercontent.com/skiy/golang-install/main/install.sh | bash -s -- -v MY_DIY_GO_VERSION -d MY_DIY_GO_PATH
 ```
 
 ### Offline
