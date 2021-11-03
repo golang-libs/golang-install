@@ -40,7 +40,7 @@ check_in_china() {
     if [ "$urlstatus" == "" ]; then
         IN_CHINA=1
         RELEASE_URL="https://golang.google.cn/dl/"
-        GOPROXY_TEXT="https://goproxy.io,https://goproxy.cn"   
+        GOPROXY_TEXT="https://goproxy.cn"   
         PROJECT_URL="https://gitlab.cn/skiy/golang-install"
     fi
 }
