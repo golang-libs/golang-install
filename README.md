@@ -11,7 +11,7 @@ English | [简体中文](./README_CN.md)
 ### Online
 #### Default install 
 ```sh
-$ curl -fsL https://raw.githubusercontent.com/golang-libs/golang-install/main/install.sh | bash
+curl -fsL https://raw.githubusercontent.com/golang-libs/golang-install/main/install.sh | bash
 ```
 
 ### Offline
@@ -19,16 +19,16 @@ Save the script as a file name **install.sh**
 
 ```sh
 # default install
-$ bash install.sh   
+bash install.sh   
 ```
   
 add executable permissions.   
 ```sh
 # add executable
-$ chmod +x install.sh
+chmod +x install.sh
 
 # default install
-$ ./install.sh
+./install.sh
 
 ## License
 
