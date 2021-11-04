@@ -11,7 +11,7 @@ English | [简体中文](./README_CN.md)
 ### Online
 #### Default install 
 ```sh
-curl -fsL https://raw.githubusercontent.com/golang-libs/golang-install/main/install.sh | bash
+curl -fsL https://raw.githubusercontent.com/golang-libs/golang-install/main/install.sh -o install.sh && bash ./install.sh
 ```
 
 ### Offline
