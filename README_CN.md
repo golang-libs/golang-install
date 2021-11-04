@@ -19,7 +19,7 @@ curl -fsL https://raw.githubusercontent.com/golang-libs/golang-install/main/inst
 
 ```sh
 # 默认配置
-$ bash install.sh
+bash install.sh
 ```
   
 脚本可执行权限。  
