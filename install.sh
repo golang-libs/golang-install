@@ -830,7 +830,6 @@ main() {
     check_go_path
 
     echo -e "\n$(info_message "Start Detect Golang Version ")"
-    latest_version
     list_versions
 
     compare_version
