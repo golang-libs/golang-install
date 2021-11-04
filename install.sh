@@ -39,19 +39,22 @@ tool_info() {
 
 # check current shell
 check_shell() {
-    if test -n"$ZSH_VERSION"; then
-        PROFILE_SHELL=zsh
-    elif test -n"$BASH_VERSION"; then
-        PROFILE_SHELL=bash
-    elif test -n"$KSH_VERSION"; then
-        PROFILE_SHELL=ksh
-    elif test -n"$FCEDIT"; then
-        PROFILE_SHELL=ksh
-    elif test -n"$PS3"; then
-        PROFILE_SHELL=unknown
-    else
-        PROFILE_SHELL=sh
-    fi
+    shell=$SHELL
+    case ${shell} in
+        */bash)
+            PROFILE_SHELL=bash
+            ;;
+        */zsh)
+            PROFILE_SHELL=zsh
+            ;;
+        */sh)  
+            PROFILE_SHELL=sh
+            ;; 
+        *)
+            warning_message "Please use bash, zsh or sh as your shell"
+            exit 1
+            ;;
+    esac
     printf "Current Shell is $(warning_message %s)\n" $PROFILE_SHELL
 }
 
@@ -298,29 +301,26 @@ set_environment() {
 }
 
 show_install_information() {
-printf "
-Current OS:      $(warning_message "%s")
+printf "Current OS:      $(warning_message "%s")
 Current ARCH:    $(warning_message "%s")
 GOROOT:          $(warning_message "%s")
 GOPATH:          $(warning_message "%s") 
 Current Version: $(warning_message "%s")
 Target  Version: $(warning_message "%s")
 Latest  Version: $(warning_message "%s")
-\n" $OS $ARCH $GO_ROOT $GO_PATH $OLD_VERSION $RELEASE_TAG $LATEST_VERSION
+\n" $OS $ARCH $(replaceHome $GO_ROOT) $(replaceHome $GO_PATH) $OLD_VERSION $RELEASE_TAG $LATEST_VERSION
 }
 
 continue_install() {
     printf  "Press $(warning_message "Ctrl+C") now to abort this script, or wait for the installation to continue."
 	echo
-	sleep ${TIMEOUT}
+	sleep 5
 }
 
 # Show success message
 show_success_message() {
 printf "
-###############################################################
-# Install success, please execute again $(warning_message "source %s")}
-###############################################################
+Install success, please execute again $(warning_message "source %s")
 \n" $PROFILE
 }
 
@@ -395,6 +395,13 @@ check_os_and_arch() {
     printf "The $(warning_message OS) is $(warning_message %s), The $(warning_message ARCH) is $(warning_message %s), The $(warning_message BIT) is $(warning_message %s)\n" $OS $ARCH $BIT
 }
 
+make_dir() {
+    param=$(replaceHome "$1")
+    if [ ! -d "$param" ]; then
+        mkdir -p "$param"
+    fi
+}
+
 main() {
     tool_info
 
@@ -437,13 +444,13 @@ main() {
     download_file $BINARY_URL $DOWNLOAD_FILE
 
     echo -e "\n$(info_message "Install and Remove Golang ")" 
-    # Tar file and move file
-    if [ ! -d "${GO_PATH}" ]; then
-        mkdir -p ${GO_PATH}
-    fi
+    make_dir $GO_ROOT
+    make_dir $GO_PATH
 
-    rm -rf ${GO_ROOT}
-    tar -C ${GO_ROOT}/../ -zxf $DOWNLOAD_FILE
+    goroot=$(replaceHome "${GO_ROOT}")
+    cd ${goroot}/../
+    rm -rf ${goroot}
+    tar -zxf $DOWNLOAD_FILE
     rm -rf $DOWNLOAD_FILE
 
     echo -e "\n$(info_message "Set Golang Environment ")" 
