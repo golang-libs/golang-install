@@ -11,7 +11,7 @@ Go 语言安装
 ### 在线安装
 #### 默认安装
 ```sh
-$ curl -fsL https://raw.githubusercontent.com/golang-libs/golang-install/main/install.sh | bash
+curl -fsL https://raw.githubusercontent.com/golang-libs/golang-install/main/install.sh | bash
 ```
 
 ### 离线执行
@@ -25,10 +25,10 @@ $ bash install.sh
 脚本可执行权限。  
 ```sh
 # 添加可执行权限
-$ chmod +x install.sh   
+chmod +x install.sh   
 
 # 默认配置
-$ ./install.sh
+./install.sh
 ```
 
 ## License
