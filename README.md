@@ -7,9 +7,6 @@ The latest version of the golang is installed.
    
 English | [简体中文](./README_CN.md)
 
-#### Notice
-- By default, the latest version of **go version** is installed, and the **GOPATH** directory is ```~/.go/path```
-
 ## Installation
 ### Online
 #### Default install 
@@ -25,7 +22,7 @@ Save the script as a file name **install.sh**
 $ bash install.sh   
 ```
   
-When you add executable permissions, you can customize the version and gopath.   
+add executable permissions.   
 ```sh
 # add executable
 $ chmod +x install.sh
