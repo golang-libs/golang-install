@@ -11,7 +11,7 @@ Go 语言安装
 ### 在线安装
 #### 默认安装
 ```sh
-curl -fsL https://raw.githubusercontent.com/golang-libs/golang-install/main/install.sh | bash
+curl -fsL https://raw.githubusercontent.com/golang-libs/golang-install/main/install.sh -o install.sh && bash ./install.sh
 ```
 
 ### 离线执行
