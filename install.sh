@@ -101,13 +101,6 @@ check_in_china() {
     sleep 1s
 }
 
-# create GOPATH folder
-create_gopath() {
-    if [ ! -d $GO_PATH ]; then
-        mkdir -p $GO_PATH
-    fi
-}
-
 # Get OS bit
 init_arch() {
     ARCH=$(uname -m)
@@ -379,7 +372,6 @@ check_go_path() {
 
     gopath=$(replaceHome "${GO_PATH}")
     printf "\nThe $(warning_message GOPATH) is set to $(warning_message %s)\n" $gopath
-    create_gopath
 }
 
 replaceHome() {
